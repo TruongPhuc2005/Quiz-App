@@ -18,6 +18,71 @@ const questions = [
             "Computer Style Sheets"
         ],
         correct: 1
+    },
+    {
+        question: "What does HTML stand for?",
+        answers: [
+            "HyperText Markup Language",
+            "Hyper Transfer Markup Language",
+            "HighText Machine Language",
+            "Home Tool Markup Language"
+        ],
+        correct: 0
+    },
+    {
+        question: "Which tag is used to create a hyperlink in HTML?",
+        answers: ["<link>", "<a>", "<href>", "<hlink>"],
+        correct: 1
+    },
+    {
+        question: "Which CSS property is used to change text color?",
+        answers: ["font-color", "text-color", "color", "text-style"],
+        correct: 2
+    },
+    {
+        question: "Which programming language is known as the 'language of the web'?",
+        answers: ["Python", "JavaScript", "C++", "Ruby"],
+        correct: 1
+    },
+    {
+        question: "What is the default HTTP method for a form submission?",
+        answers: ["GET", "POST", "PUT", "DELETE"],
+        correct: 0
+    },
+    {
+        question: "Which JavaScript method is used to select an element by its ID?",
+        answers: [
+            "getElementById()",
+            "querySelector()",
+            "getElement()",
+            "selectById()"
+        ],
+        correct: 0
+    },
+    {
+        question: "What is the purpose of the `<head>` section in HTML?",
+        answers: [
+            "To define the body structure",
+            "To contain metadata and links to external resources",
+            "To create the main content of the page",
+            "To store JavaScript functions"
+        ],
+        correct: 1
+    },
+    {
+        question: "Which of these is NOT a valid JavaScript data type?",
+        answers: ["Boolean", "Integer", "String", "Object"],
+        correct: 1
+    },
+    {
+        question: "Which CSS property makes a webpage responsive?",
+        answers: ["width", "max-width", "height", "display"],
+        correct: 1
+    },
+    {
+        question: "Which symbol is used for comments in JavaScript?",
+        answers: ["//", "/* */", "<!-- -->", "^^"],
+        correct: 0
     }
 ];
 
