@@ -1,26 +1,30 @@
-body{
+body {
     margin: 0;
     background-color: #aeffd7; 
     display: flex;
     justify-content: center;
+    align-items: center; /* ✅ Fix: Ensure vertical centering */
     height: 100vh;
+    overflow: hidden; /* ✅ Fix: Prevent scrolling issues */
 }
 
-h1{
+h1 {
     text-align: center;
     color: #333;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.quiz-container{
+.quiz-container {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     width: 400px;
-    margin-top: 50px;
+    max-width: 90%; /* ✅ Fix: Make it responsive */
+    margin-top: 20px;
 }
+
 .btn-container {
     display: flex;
     flex-direction: column;
@@ -35,12 +39,14 @@ h1{
     cursor: pointer;
     text-align: center;
     width: 100%;
+    border-radius: 5px; /* ✅ Fix: Make buttons rounded */
 }
 
 .btn:hover {
     background-color: #0056b3;
 }
-button{
+
+button {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #4CAF50;
     color: white;
@@ -49,6 +55,7 @@ button{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 button:hover {
@@ -66,6 +73,7 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     display: none;
+    transition: background-color 0.2s ease;
 }
 
 #next-btn:hover {

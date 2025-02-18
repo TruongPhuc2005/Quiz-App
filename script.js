@@ -23,6 +23,8 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 10;
+let timer;
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -43,6 +45,8 @@ function loadQuestion() {
         button.addEventListener("click", () => checkAnswer(index));
         answerButtons.appendChild(button);
     });
+
+    startTimer(); // Start timer when loading a question
 }
 
 function resetState() {
@@ -50,14 +54,45 @@ function resetState() {
     answerButtons.innerHTML = ""; // Clear previous buttons
 }
 
-function checkAnswer(index) {
-    if (index === questions[currentQuestionIndex].correct) {
-        score++;
-    }
-    nextButton.style.display = "block"; // Show "Next" button
+function startTimer() {
+    timeLeft = 10;
+    clearInterval(timer); // Clear any existing timer
+
+    timer = setInterval(() => {
+        timeLeft--;
+        console.log(`Time Left: ${timeLeft}s`);
+
+        if (timeLeft === 0) {
+            clearInterval(timer);
+            showFeedback(false); // Auto-move to next question
+        }
+    }, 1000);
 }
 
-nextButton.addEventListener("click", () => {
+function checkAnswer(index) {
+    clearInterval(timer); // Stop the timer
+
+    let correctIndex = questions[currentQuestionIndex].correct;
+    let isCorrect = index === correctIndex;
+
+    showFeedback(isCorrect);
+}
+
+function showFeedback(isCorrect) {
+    if (isCorrect) {
+        document.body.style.backgroundColor = "lightgreen";
+        score++;
+    } else {
+        document.body.style.backgroundColor = "lightcoral";
+    }
+
+    setTimeout(() => {
+        document.body.style.backgroundColor = "white";
+        nextQuestion();
+    }, 1000);
+}
+
+function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
@@ -67,10 +102,11 @@ nextButton.addEventListener("click", () => {
         nextButton.style.display = "none";
         scoreElement.innerText = `Your score: ${score} / ${questions.length}`;
     }
-});
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM Loaded");
     loadQuestion();
 });
 
+nextButton.addEventListener("click", nextQuestion);
