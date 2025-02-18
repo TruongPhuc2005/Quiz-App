@@ -84,71 +84,7 @@ const questions = [
         answers: ["//", "/* */", "<!-- -->", "^^"],
         correct: 0
     },
-    {
-        question: "What is C++ primarily used for?",
-        answers: [
-            "Web development",
-            "Game development, system programming, and software applications",
-            "Mobile app development",
-            "Data analysis and visualization"
-        ],
-        correct: 1
-    },
-    {
-        question: "Which of the following is a valid C++ data type?",
-        answers: ["float", "decimal", "real", "number"],
-        correct: 0
-    },
-    {
-        question: "What is the correct syntax to print 'Hello, World!' in C++?",
-        answers: [
-            "System.out.println('Hello, World!');",
-            "print('Hello, World!');",
-            "cout << 'Hello, World!';",
-            "Console.WriteLine('Hello, World!');"
-        ],
-        correct: 2
-    },
-    {
-        question: "Which header file is needed for input and output operations in C++?",
-        answers: ["<input.h>", "<iostream>", "<stdio.h>", "<stream.h>"],
-        correct: 1
-    },
-    {
-        question: "What is the default access specifier for class members in C++?",
-        answers: ["public", "private", "protected", "none"],
-        correct: 1
-    },
-    {
-        question: "Which operator is used to allocate memory dynamically in C++?",
-        answers: ["malloc", "new", "alloc", "create"],
-        correct: 1
-    },
-    {
-        question: "Which C++ feature allows multiple functions with the same name but different parameters?",
-        answers: ["Encapsulation", "Function Overloading", "Inheritance", "Polymorphism"],
-        correct: 1
-    },
-    {
-        question: "Which of the following correctly declares a pointer in C++?",
-        answers: ["int ptr;", "int *ptr;", "pointer<int> ptr;", "ptr int;"],
-        correct: 1
-    },
-    {
-        question: "What happens when the `delete` operator is used on a pointer?",
-        answers: [
-            "It frees the allocated memory",
-            "It deletes the pointer variable",
-            "It removes the value stored in the pointer",
-            "It resets the pointer to null"
-        ],
-        correct: 0
-    },
-    {
-        question: "Which C++ concept allows a derived class to use base class methods?",
-        answers: ["Encapsulation", "Polymorphism", "Inheritance", "Abstraction"],
-        correct: 2
-    }
+    
 ];
 
 let currentQuestionIndex = 0;
@@ -221,9 +157,10 @@ function showFeedback(isCorrect) {
 
     setTimeout(() => {
         document.body.style.backgroundColor = "white";
-        nextQuestion();
+        nextButton.style.display = "inline-block"; // Show the next button after feedback
     }, 1000);
 }
+
 
 function nextQuestion() {
     currentQuestionIndex++;
@@ -235,7 +172,7 @@ function nextQuestion() {
         nextButton.style.display = "none";
         scoreElement.innerText = `Your score: ${score} / ${questions.length}`;
     }
-    startTimer();
+    // No need to call startTimer again here, it's already handled in loadQuestion
 }
 
 document.addEventListener("DOMContentLoaded", () => {
