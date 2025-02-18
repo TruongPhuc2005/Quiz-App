@@ -25,6 +25,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 10;
 let timer;
+let timerInterval;
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -55,16 +56,18 @@ function resetState() {
 }
 
 function startTimer() {
-    timeLeft = 10;
-    clearInterval(timer); // Clear any existing timer
+    clearInterval(timerInterval); // Clear any existing timer
+    timeLeft = 10; // Reset timer
+    document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
 
-    timer = setInterval(() => {
+    timerInterval = setInterval(() => {
         timeLeft--;
-        console.log(`Time Left: ${timeLeft}s`);
+        document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
 
-        if (timeLeft === 0) {
-            clearInterval(timer);
-            showFeedback(false); // Auto-move to next question
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("Time's up! Moving to next question.");
+            showNextQuestion(); // Auto-move to next question
         }
     }, 1000);
 }
@@ -102,6 +105,7 @@ function nextQuestion() {
         nextButton.style.display = "none";
         scoreElement.innerText = `Your score: ${score} / ${questions.length}`;
     }
+    startTimer();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -110,3 +114,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 nextButton.addEventListener("click", nextQuestion);
+startTimer();
