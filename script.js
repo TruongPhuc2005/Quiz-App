@@ -18,90 +18,22 @@ const questions = [
             "Computer Style Sheets"
         ],
         correct: 1
-    },
-    {
-        question: "What does HTML stand for?",
-        answers: [
-            "HyperText Markup Language",
-            "Hyper Transfer Markup Language",
-            "HighText Machine Language",
-            "Home Tool Markup Language"
-        ],
-        correct: 0
-    },
-    {
-        question: "Which tag is used to create a hyperlink in HTML?",
-        answers: ["<link>", "<a>", "<href>", "<hlink>"],
-        correct: 1
-    },
-    {
-        question: "Which CSS property is used to change text color?",
-        answers: ["font-color", "text-color", "color", "text-style"],
-        correct: 2
-    },
-    {
-        question: "Which programming language is known as the 'language of the web'?",
-        answers: ["Python", "JavaScript", "C++", "Ruby"],
-        correct: 1
-    },
-    {
-        question: "What is the default HTTP method for a form submission?",
-        answers: ["GET", "POST", "PUT", "DELETE"],
-        correct: 0
-    },
-    {
-        question: "Which JavaScript method is used to select an element by its ID?",
-        answers: [
-            "getElementById()",
-            "querySelector()",
-            "getElement()",
-            "selectById()"
-        ],
-        correct: 0
-    },
-    {
-        question: "What is the purpose of the `<head>` section in HTML?",
-        answers: [
-            "To define the body structure",
-            "To contain metadata and links to external resources",
-            "To create the main content of the page",
-            "To store JavaScript functions"
-        ],
-        correct: 1
-    },
-    {
-        question: "Which of these is NOT a valid JavaScript data type?",
-        answers: ["Boolean", "Integer", "String", "Object"],
-        correct: 1
-    },
-    {
-        question: "Which CSS property makes a webpage responsive?",
-        answers: ["width", "max-width", "height", "display"],
-        correct: 1
-    },
-    {
-        question: "Which symbol is used for comments in JavaScript?",
-        answers: ["//", "/* */", "<!-- -->", "^^"],
-        correct: 0
-    },
-    
+    }
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 10;
-let timer;
 let timerInterval;
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const scoreElement = document.getElementById("score");
+const timerElement = document.getElementById("timer");
 
 function loadQuestion() {
-    console.log("Loading question..."); // Debugging check
     resetState();
-
     let currentQuestion = questions[currentQuestionIndex];
     questionElement.innerText = currentQuestion.question;
 
@@ -113,33 +45,33 @@ function loadQuestion() {
         answerButtons.appendChild(button);
     });
 
-    startTimer(); 
+    startTimer();
 }
 
 function resetState() {
     nextButton.style.display = "none";
-    answerButtons.innerHTML = ""; 
+    answerButtons.innerHTML = "";
 }
 
 function startTimer() {
-    clearInterval(timerInterval); 
-    timeLeft = 30; 
-    document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
+    clearInterval(timerInterval);
+    timeLeft = 30;
+    timerElement.innerText = `Time left: ${timeLeft}s`;
 
     timerInterval = setInterval(() => {
         timeLeft--;
-        document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
+        timerElement.innerText = `Time left: ${timeLeft}s`;
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             alert("Time's up! Moving to next question.");
-            showNextQuestion(); 
+            showNextQuestion();
         }
     }, 1000);
 }
 
 function checkAnswer(index) {
-    clearInterval(timerInterval); 
+    clearInterval(timerInterval);
 
     let correctIndex = questions[currentQuestionIndex].correct;
     let isCorrect = index === correctIndex;
@@ -148,8 +80,6 @@ function checkAnswer(index) {
 }
 
 function showFeedback(isCorrect) {
-    clearInterval(timerInterval); // Stop the timer
-
     if (isCorrect) {
         document.body.style.backgroundColor = "lightgreen";
         score++;
@@ -159,26 +89,53 @@ function showFeedback(isCorrect) {
 
     setTimeout(() => {
         document.body.style.backgroundColor = "white";
-        nextQuestion(); // Move to next question automatically
+        nextButton.style.display = "inline-block";
     }, 1000);
 }
-
-
 
 function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
     } else {
-        questionElement.innerText = "Quiz Completed!";
-        answerButtons.innerHTML = "";
-        nextButton.style.display = "none";
-        scoreElement.innerText = `Your score: ${score} / ${questions.length}`;
+        showFinalResults();
     }
 }
 
+function showFinalResults() {
+    document.querySelector(".quiz-container").innerHTML = `
+        <h1>Quiz Completed!</h1>
+        <p>Your score: <strong>${score} / ${questions.length}</strong></p>
+        <p>${getMessage()}</p>
+        <button onclick="restartQuiz()" class="btn">Restart Quiz</button>
+    `;
+}
+
+function getMessage() {
+    let percentage = (score / questions.length) * 100;
+    if (percentage === 100) return "🎉 Perfect score! Excellent job!";
+    if (percentage >= 70) return "😊 Great job! Keep it up!";
+    if (percentage >= 40) return "😌 Not bad! You can do better!";
+    return "😢 Keep practicing! Try again!";
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    document.querySelector(".quiz-container").innerHTML = `
+        <h1>Quiz App</h1>
+        <div id="question-container">
+            <p id="question">Loading...</p>
+            <div id="answer-buttons" class="btn-container"></div>
+            <p id="timer">Time left: 10s</p>
+        </div>
+        <button id="next-btn" style="display: none;">Next</button>
+        <p id="score"></p>
+    `;
+    loadQuestion();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM Loaded");
     loadQuestion();
 });
 
