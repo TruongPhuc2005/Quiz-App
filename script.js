@@ -102,6 +102,7 @@ function showFinalResults() {
         <p>${getMessage()}</p>
         <button onclick="restartQuiz()" class="btn">Restart Quiz</button>
     `;
+    nextButton.style.display = "none"; 
 }
 
 function getMessage() {
