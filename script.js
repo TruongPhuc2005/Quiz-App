@@ -26,6 +26,11 @@ let score = 0;
 let timeLeft = 10;
 let timerInterval;
 
+const correctSound = new Audio('/sounds/correct.mp3');  // Correct answer sound
+const wrongSound = new Audio('/sounds/wrong.mp3');      // Wrong answer sound
+correctSound.load();
+wrongSound.load();
+
 const quizContainer = document.querySelector(".quiz-container");
 
 function loadQuestion() {
@@ -71,7 +76,12 @@ function checkAnswer(index) {
     let correctIndex = questions[currentQuestionIndex].correct;
     let isCorrect = index === correctIndex;
 
-    if (isCorrect) score++;
+    if (isCorrect) {
+        score++;
+        correctSound.play(); // Play correct answer sound
+    } else {
+        wrongSound.play(); // Play wrong answer sound
+    }
 
     document.getElementById("next-btn").style.display = "inline-block";
 }
