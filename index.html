@@ -12,13 +12,21 @@
 <body>
     <div class="quiz-container">
         <h1>Quiz App</h1>
-        <div id="question-container">
-            <p id="question">Loading...</p>
-            <div id="answer-buttons" class="btn-container"></div>
-            <p id="timer">Time left: 10s</p>
+        <div id="subject-selection">
+            <h2>Select a Topic</h2>
+            <button class="btn" onclick="startQuiz('generalKnowledge')">General Knowledge</button>
+            <button class="btn" onclick="startQuiz('geography')">Geography</button>
+            <button class="btn" onclick="startQuiz('history')">History</button>
         </div>
-        <button id="next-btn" style="display: none;">Next</button>
-        <p id="score"></p>
+        <div id="quiz-content" style="display: none;">
+            <div id="question-container">
+                <p id="question">Loading...</p>
+                <div id="answer-buttons" class="btn-container"></div>
+                <p id="timer">Time left: 10s</p>
+            </div>
+            <button id="next-btn" style="display: none;" onclick="nextQuestion()">Next</button>
+            <p id="score"></p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
