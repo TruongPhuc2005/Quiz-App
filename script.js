@@ -123,7 +123,7 @@ function resetState() {
 
 function startTimer() {
     clearInterval(timerInterval); // Clear any existing timer
-    timeLeft = 10; // Reset timer
+    timeLeft = 30; // Reset timer
     document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
 
     timerInterval = setInterval(() => {
@@ -172,7 +172,6 @@ function nextQuestion() {
         nextButton.style.display = "none";
         scoreElement.innerText = `Your score: ${score} / ${questions.length}`;
     }
-    // No need to call startTimer again here, it's already handled in loadQuestion
 }
 
 document.addEventListener("DOMContentLoaded", () => {
