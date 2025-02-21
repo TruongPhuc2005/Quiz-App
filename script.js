@@ -113,17 +113,17 @@ function loadQuestion() {
         answerButtons.appendChild(button);
     });
 
-    startTimer(); // Start timer when loading a question
+    startTimer(); 
 }
 
 function resetState() {
     nextButton.style.display = "none";
-    answerButtons.innerHTML = ""; // Clear previous buttons
+    answerButtons.innerHTML = ""; 
 }
 
 function startTimer() {
-    clearInterval(timerInterval); // Clear any existing timer
-    timeLeft = 30; // Reset timer
+    clearInterval(timerInterval); 
+    timeLeft = 30; 
     document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
 
     timerInterval = setInterval(() => {
@@ -133,13 +133,13 @@ function startTimer() {
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             alert("Time's up! Moving to next question.");
-            showNextQuestion(); // Auto-move to next question
+            showNextQuestion(); 
         }
     }, 1000);
 }
 
 function checkAnswer(index) {
-    clearInterval(timer); // Stop the timer
+    clearInterval(timerInterval); 
 
     let correctIndex = questions[currentQuestionIndex].correct;
     let isCorrect = index === correctIndex;
@@ -148,6 +148,8 @@ function checkAnswer(index) {
 }
 
 function showFeedback(isCorrect) {
+    clearInterval(timerInterval); // Stop the timer
+
     if (isCorrect) {
         document.body.style.backgroundColor = "lightgreen";
         score++;
@@ -157,9 +159,10 @@ function showFeedback(isCorrect) {
 
     setTimeout(() => {
         document.body.style.backgroundColor = "white";
-        nextButton.style.display = "inline-block"; // Show the next button after feedback
+        nextQuestion(); // Move to next question automatically
     }, 1000);
 }
+
 
 
 function nextQuestion() {
@@ -180,4 +183,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 nextButton.addEventListener("click", nextQuestion);
-startTimer();
