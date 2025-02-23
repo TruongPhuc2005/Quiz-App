@@ -80,7 +80,7 @@ function checkAnswer(index) {
         score++;
         correctSound.play();
     } else {
-        wrongSound.play(); // Play wrong answer sound
+        wrongSound.play(); 
     }
 
     document.getElementById("next-btn").style.display = "inline-block";
