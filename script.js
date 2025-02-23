@@ -27,7 +27,7 @@ let timeLeft = 10;
 let timerInterval;
 
 const correctSound = new Audio('/sounds/correct.mp3');  
-const wrongSound = new Audio('/sounds/wrong.mp3');      // Wrong answer sound
+const wrongSound = new Audio('/sounds/wrong.mp3');     
 correctSound.load();
 wrongSound.load();
 
