@@ -78,7 +78,7 @@ function checkAnswer(index) {
 
     if (isCorrect) {
         score++;
-        correctSound.play(); // Play correct answer sound
+        correctSound.play();
     } else {
         wrongSound.play(); // Play wrong answer sound
     }
