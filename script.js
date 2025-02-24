@@ -83,6 +83,7 @@ function checkAnswer(index) {
         wrongSound.play(); 
     }
 
+    document.getElementById("next-btn").style.display = "inline-block";
 }
 
 function nextQuestion() {
