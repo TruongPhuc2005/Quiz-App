@@ -18,6 +18,21 @@ const questions = [
             "Computer Style Sheets"
         ],
         correct: 1
+    },
+    {
+        question: "What does HTML stand for?",
+        answers: [
+            "Hypertext Markup Language",
+            "Hypertext Markdown Language",
+            "Hyperloop Machine Language",
+            "Helicopter Terminals Motorboats Lamborginis"
+        ],
+        correct: 0
+    },
+    {
+        question: "What year was JavaScript launched?",
+        answers: ["1996", "1995", "1994", "none of the above"],
+        correct: 1
     }
 ];
 
