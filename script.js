@@ -58,7 +58,7 @@ function resetState() {
 }
 
 function startTimer() {
-    timeLeft = 30;
+    timeLeft = 60;
     timerInterval = setInterval(() => {
         timeLeft--;
         document.getElementById("timer").innerText = `Time left: ${timeLeft}s`;
