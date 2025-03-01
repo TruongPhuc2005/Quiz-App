@@ -127,6 +127,8 @@ const questions = [
     {
         question: "What is the capital of Egypt?",
         answers: ["Berlin", "Cairo", "Paris", "Rome"],
+        correct: 1
+    }
 ];
 
 let currentQuestionIndex = 0;
