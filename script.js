@@ -143,6 +143,11 @@ const questions = [
         question: "What is the capital of Kenya?",
         answers: ["Berlin", "Madrid", "Paris", "Nairobi"],  
         correct: 3
+    },
+    {
+        question: "What is the capital of Ghana?",
+        answers: ["Berlin", "Madrid", "Paris", "Accra"],
+        correct: 3
     }
 ];
 
