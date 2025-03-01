@@ -33,6 +33,31 @@ const questions = [
         question: "What year was JavaScript launched?",
         answers: ["1996", "1995", "1994", "none of the above"],
         correct: 1
+    },
+    {
+        question: "What is the capital of Spain?",
+        answers: ["Berlin", "Madrid", "Paris", "Rome"],
+        correct: 1
+    },
+    {
+        question: "What is the capital of Italy?",
+        answers: ["Berlin", "Madrid", "Paris", "Rome"],
+        correct: 3
+    },
+    {
+        question: "What is the capital of Germany?",
+        answers: ["Berlin", "Madrid", "Paris", "Rome"],
+        correct: 0
+    },
+    {
+        question: "What is the capital of Portugal?",
+        answers: ["Berlin", "Madrid", "Lisbon", "Rome"],
+        correct: 2
+    },
+    {
+        question: "What is the capital of the Netherlands?",
+        answers: ["Amsterdam", "Madrid", "Paris", "Rome"],
+        correct: 0
     }
 ];
 
