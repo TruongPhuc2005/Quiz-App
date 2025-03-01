@@ -63,7 +63,70 @@ const questions = [
         question: "What is the capital of Vietnam?",
         answers: ["Berlin", "Hanoi", "Paris", "Rome"],
         correct: 1
-    }
+    },
+    {
+        question: "What is the capital of Thailand?",
+        answers: ["Berlin", "Bangkok", "Paris", "Rome"],
+        correct: 1
+    },
+    {
+        question: "What is the capital of the United States?",
+        answers: ["Washington D.C.", "Madrid", "Paris", "Rome"],
+        correct: 0
+    },
+    {
+        question: "What is the capital of Brazil?",
+        answers: ["Berlin", "Madrid", "Paris", "Brasilia"],
+        correct: 3
+    },
+    {
+        question: "What is the capital of Australia?",
+        answers: ["Berlin", "Canberra", "Paris", "Rome"],
+        correct: 1
+    },
+    {
+        question: "What is the capital of Canada?",
+        answers: ["Berlin", "Madrid", "Ottawa", "Rome"],
+        correct: 2
+    },
+    {
+        question: "What is the capital of China?",
+        answers: ["Beijing", "Madrid", "Paris", "Rome"],
+        correct: 0
+    },
+    {
+        question: "What is the capital of India?",
+        answers: ["Berlin", "Madrid", "Paris", "New Delhi"],
+        correct: 3
+    },
+    {
+        question: "What is the capital of Japan?",
+        answers: ["Berlin", "Tokyo", "Paris", "Rome"],
+        correct: 1
+    },
+    {
+        question: "What is the capital of South Korea?",
+        answers: ["Berlin", "Seoul", "Paris", "Rome"],
+        correct: 1
+    },
+    {
+        question: "What is the capital of Russia?",
+        answers: ["Berlin", "Moscow", "Paris", "Rome"],
+        correct: 1
+    },
+    {
+        question: "What is the capital of Mexico?",
+        answers: ["Berlin", "Madrid", "Mexico City", "Rome"],
+        correct: 2
+    },
+    {
+        question: "What is the capital of Argentina?",
+        answers: ["Berlin", "Madrid", "Paris", "Buenos Aires"],
+        correct: 3
+    },
+    {
+        question: "What is the capital of Egypt?",
+        answers: ["Berlin", "Cairo", "Paris", "Rome"],
 ];
 
 let currentQuestionIndex = 0;
