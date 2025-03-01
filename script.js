@@ -58,6 +58,11 @@ const questions = [
         question: "What is the capital of the Netherlands?",
         answers: ["Amsterdam", "Madrid", "Paris", "Rome"],
         correct: 0
+    },
+    {
+        question: "What is the capital of Vietnam?",
+        answers: ["Berlin", "Hanoi", "Paris", "Rome"],
+        correct: 1
     }
 ];
 
