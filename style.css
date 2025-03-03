@@ -48,7 +48,7 @@ h1 {
     cursor: pointer;
     text-align: center;
     width: 100%;
-    border-radius: 5px; /* ✅ Fix: Make buttons rounded */
+    border-radius: 5px; 
 }
 
 .btn:hover {
