@@ -85,4 +85,7 @@ button:hover {
     transition: background-color 0.2s ease;
 }
 
+#next-btn:hover {
+    background-color: #218838;
+}
 
